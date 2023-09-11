@@ -1,0 +1,75 @@
+package exam02;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//使用者首先輸入有幾個學生
+		Scanner scn = new Scanner(System.in);
+//		System.out.println("使用者首先輸入有幾個學生?");
+		int n =scn.nextInt();
+		//物件陣列
+		Student []studs = new Student[n];
+		int height;
+		int weight;
+		int score;
+		String id;
+		for(int i=0;i<n;i++) {
+//			System.out.println("學生身高?");
+			height = scn.nextInt();
+//			studs[i].setHeight(height);
+			
+//			System.out.println("學生體重?");
+			weight = scn.nextInt();
+//			studs[i].setWeight(weight);
+			
+//			System.out.println("學生成績?");
+			score = scn.nextInt();
+//			studs[i].setScore(score);
+			
+//			System.out.println("學生學號?");
+			id = scn.next();
+//			studs[i].setId(id);
+			//
+			studs[i]=new Student(height, weight, score, id);
+		}
+		//sort----------------------------
+		int data[]= new int[n];
+		for(int i=0;i<n;i++) {
+			data[i]=studs[i].getScore();
+		}
+		
+        for (int v1=0;v1<data.length;v1++){//外圍固定位置依序往後比對
+            for(int v2=v1+1;v2<data.length;v2++){//內圍是當前位置的下一個位置來做比對
+                if (data[v1]>data[v2]){
+                    //tmp保留原本的值
+                    int tmp = data[v1];
+                    data[v1] = data[v2];
+                    data[v2] = tmp;
+                }
+            }    
+        }
+        //for each 輸出陣列內容
+        for(int v3:data){
+            System.out.print(v3+"\t");
+        }
+        //----------------------------
+        
+		for(Student stud:studs) {
+//			System.out.print("Student[height="+stud.getHeight());
+//			System.out.print(",weight="+stud.getWeight());
+//			System.out.print(",score="+stud.getScore());
+//			System.out.println(",id="+stud.getId()+"]");
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

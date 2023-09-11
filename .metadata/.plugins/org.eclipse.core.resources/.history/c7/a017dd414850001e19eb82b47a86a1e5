@@ -1,0 +1,54 @@
+package exam02;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//使用者首先輸入有幾個學生
+		Scanner scn = new Scanner(System.in);
+//		System.out.println("使用者首先輸入有幾個學生?");
+		int n =scn.nextInt();
+		//物件陣列
+		Student []studs = new Student[n];
+		int height;
+		int weight;
+		int score;
+		String id;
+		for(int i=0;i<n;i++) {
+//			System.out.println("學生身高?");
+			height = scn.nextInt();
+//			studs[i].setHeight(height);
+			
+//			System.out.println("學生體重?");
+			weight = scn.nextInt();
+//			studs[i].setWeight(weight);
+			
+//			System.out.println("學生成績?");
+			score = scn.nextInt();
+//			studs[i].setScore(score);
+			
+//			System.out.println("學生學號?");
+			id = scn.next();
+//			studs[i].setId(id);
+			//
+			studs[i]=new Student(height, weight, score, id);
+		}
+		//for each
+		for(Student stud:studs) {
+			
+			System.out.print("Student[height="+stud.getHeight());
+			System.out.print(",weight="+stud.getWeight());
+			System.out.print(",score="+stud.getScore());
+			System.out.println(",id="+stud.getId()+"]");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

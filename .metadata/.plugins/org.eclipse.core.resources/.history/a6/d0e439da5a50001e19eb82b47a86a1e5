@@ -1,0 +1,58 @@
+package exam02;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//使用者首先輸入有幾個學生
+		Scanner scn = new Scanner(System.in);
+//		System.out.println("使用者首先輸入有幾個學生?");
+		int n =scn.nextInt();
+		//物件陣列
+		Student []studs = new Student[n];
+//		int height;
+//		int weight;
+//		int score;
+//		String id;
+		for(int i=0;i<n;i++) {
+			int height = scn.nextInt();			
+			int weight = scn.nextInt();			
+			int score = scn.nextInt();			
+			String id = scn.next();
+			studs[i]=new Student(height, weight, score, id);
+		}
+		
+		//sort
+		//用類別宣告變數
+		Student studentTemp;
+		for(int i=0;i<studs.length;i++) {//外圍固定位置依序往後比對
+			for(int j=i+1;j<studs.length;j++) {//內圍是當前位置的下一個位置來做比對
+				if(studs[i].getScore()>studs[j].getScore()) {
+					////studentTemp保留原本的值
+					studentTemp = studs[i];
+					studs[i] = studs[j];
+					studs[j] = studentTemp;
+				}
+			}
+			
+		}
+
+        
+		for(Student stud:studs) {
+			System.out.print("Student[height="+stud.getHeight());
+			System.out.print(",weight="+stud.getWeight());
+			System.out.print(",score="+stud.getScore());
+			System.out.println(",id="+stud.getId()+"]");
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}
